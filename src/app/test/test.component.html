@@ -1,0 +1,31 @@
+<app-breadcrumb
+    [title_page]="'TestPage'"
+    [link]="'/test'"
+    [item]="'Home'"
+    [level_item]="'Test'"
+></app-breadcrumb>
+<h1>{{ places()?.[0]?.title }}</h1>
+<button (click)="onStartAddTask()">Add Task</button>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">Handle</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (item of places(); track item.id) {
+            <tr>
+                <th scope="row">{{ item.id }}</th>
+                <td>{{ item.title }}</td>
+                <td>{{ item.image.alt }}</td>
+                <td></td>
+            </tr>
+        }
+    </tbody>
+</table>
+@if (isAddingTask) {
+    <app-add-test (close)="onCloseAddTask()" />
+}
