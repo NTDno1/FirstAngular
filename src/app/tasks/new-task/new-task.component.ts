@@ -30,8 +30,9 @@ export class NewTaskComponent {
         summary: this.enteredSummary,
         date: this.enteredDate,
       },
-      this.userId
+      this.userId,
     );
+    console.log(this.tasksService);
     this.close.emit();
   }
 }
